@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistente Virtual eMa - meTel</title>
+    <script>
+        //1.- Función para la opción de "Boletas y pagos"
+        function boletasYpagos() {
+            let opcionBoletas = prompt(
+                "Opción 'Boletas y pagos'.\n" +
+                "1.- Ver Boleta\n" +
+                "2.- Pagar Cuenta"
+            );
+
+            opcionBoletas = parseInt(opcionBoletas);
+
+            switch (opcionBoletas) {
+                case 1:
+                    alert("Has seleccionado 'Ver Boleta'.\nHaz click para descargar tu boleta...");
+                    break;
+                case 2:
+                    alert("Has seleccionado 'Pagar Cuenta'.\nRedirigiendo al portal de pagos...");
+                    break;
+                default:
+                    alert("Opción no válida. Por favor, intenta de nuevo.");
+                    boletasYpagos(); // opción no válida
+                    break;
+                    return;
+            }
+            mostrarMenu(); 
+        }
+
+        // 2.- Función para la opción de "Señal y llamada"
+        function senalYLlamada() {
+            let opcionBoletas = prompt(
+                "Seleccione una opción: \n" +
+                "1.- Problemas con la señal\n" +
+                "2.- Problemas con las llamadas\n"
+            );
+            opcionBoletas = parseInt(opcionBoletas);
+
+            // opciones dentro de "Boletas y pagos"
+            switch (opcionBoletas) {
+                case 1:
+                let solicitud = prompt("Por favor, escriba su solicitud:");
+                    alert("Su solicitud: \"" + solicitud + "\" ha sido ingresada.");
+                    break;
+                default:
+                    alert("Opción no válida. Por favor, inténtalo de nuevo.");
+                    senalYLlamada(); // opción no es válida
+                    break;
+                    return;
+            }
+            mostrarMenu(); 
+        }
+
+        //3.- opción de "Oferta comercial"
+        function ofertaComercial() {
+            opcionBoletas = parseInt(opcionBoletas);
+
+            let respuesta = prompt("¿Te interesa conocer más sobre nuestras ofertas comerciales? (Sí/No)");
+
+            if (respuesta.toLowerCase() === "sí" || respuesta.toLowerCase() === "si") {
+                alert("¡Genial! Un ejecutivo se contactará con ud.");
+            } else if (respuesta.toLowerCase() === "no") {
+                alert("Entendido. Si cambias de opinión, estamos aquí para ayudarte!");
+            } else {
+                alert("Respuesta no válida. Por favor, intenta de nuevo.");
+                ofertaComercial(); // Opción no válida
+                return;
+            }
+
+            mostrarMenu();
+        }
+
+        // 4.- opción de "Otras consultas"
+        function otrasConsultas() {
+    let solicitud = prompt("Por favor, escriba su solicitud:");
+    
+    if (solicitud) {  
+        alert("Estimad@ Usuario: Su solicitud \"" + solicitud + "\" ha sido ingresada con éxito. En unos minutos, nuestros ejecutivos se contactarán con usted.");
+    } else {
+        alert("No se ingresó ninguna solicitud. Gracias por visitarnos.");
+    }
+    
+    mostrarMenu();  // Volver al menú principal
+}
+
+        // Función principal para mostrar el menú y manejar la elección del usuario
+        function mostrarMenu() {
+            let opcion = prompt(
+                "Bienvenido al asistente virtual de Metel, Eva.\n" +
+                "Por favor, selecciona una opción:\n" +
+                "1. Boletas y pagos\n" +
+                "2. Señal y llamada\n" +
+                "3. Oferta comercial\n" +
+                "4. Otras consultas"
+            );
+
+            // Convertimos la entrada del usuario a número para facilitar el manejo
+            opcion = parseInt(opcion);
+
+            // Utilizamos un switch para manejar las diferentes opciones
+            switch (opcion) {
+                case 1:
+                    boletasYpagos();
+                    break;
+                case 2:
+                    senalYLlamada();
+                    break;
+                case 3:
+                    ofertaComercial();
+                    break;
+                case 4:
+                    otrasConsultas();
+                    break;
+                default:
+                    alert("Opción no válida. Por favor, intenta de nuevo.");
+                    mostrarMenu(); // Volvemos a mostrar el menú si la opción no es válida
+                    break;
+            }
+        }
+
+        //función mostrarMenu al cargar la página
+        window.onload = function() {
+            mostrarMenu();
+        };
+    </script>
+</head>
+<body>
+    <h1>Asistente Virtual eMa - meTel</h1>
+    <p>¿En qué podemos ayudarte?</p>
+</body>
+</html>
